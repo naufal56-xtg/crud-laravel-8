@@ -17,42 +17,42 @@
         <a href="{{ route('export.excel') }}" class="btn btn-success float-right mx-2">Export Excel</a>
         <a href="{{ route('add.pegawai') }}" class="btn btn-primary float-right mx-2">Tambah Data</a>
     </div>
-</div>
-<div class="card-body">
-    <table class="table table-bordered table-hover table-sm">
-        <thead>
-            <tr class="text-center">
-                <th width="5%">No</th>
-                <th>Nama Pegawai</th>
-                <th width="10%">Jenis Kelamin</th>
-                <th width="20%">Gambar</th>
-                <th>No Handphone</th>
-                <th>Tanggal Buat</th>
-                <th width="15%">Manage</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($data as $index => $item)
-            <tr class="text-center">
-                <td class="py-5">{{ $index + $data->firstItem() }}</td>
-                <td class="py-5">{{ $item->nama }}</td>
-                <td class="py-5">{{ $item->jenis_kl }}</td>
-                <td class="pt-3">
-                    <img src="{{ asset('foto/'. $item->foto ) }}" alt="" width="200px" height="100px">
-                </td>
-                <td class="py-5">{{ $item->no_telp }}</td>
-                <td class="py-5">{{ $item->created_at->diffForHumans() }}</td>
-                <td class="py-5">
-                    <a href="{{ route('edit.pegawai', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                    <a href="{{ route('delete.pegawai', $item->id) }}" class="btn btn-danger btn-sm delete-btn"
-                        data-id="{{ $item->id }}">Delete</a>
-                </td>
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-    <div class="d-flex justify-content-center">
-        {{ $data->links() }}
+    <div class="card-body">
+        <table class="table table-bordered table-hover table-sm">
+            <thead>
+                <tr class="text-center">
+                    <th width="5%">No</th>
+                    <th>Nama Pegawai</th>
+                    <th width="10%">Jenis Kelamin</th>
+                    <th width="20%">Gambar</th>
+                    <th>No Handphone</th>
+                    <th>Tanggal Buat</th>
+                    <th width="15%">Manage</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($data as $index => $item)
+                <tr class="text-center">
+                    <td class="py-5">{{ $index + $data->firstItem() }}</td>
+                    <td class="py-5">{{ $item->nama }}</td>
+                    <td class="py-5">{{ $item->jenis_kl }}</td>
+                    <td class="pt-3">
+                        <img src="{{ asset('foto/'. $item->foto ) }}" alt="" width="200px" height="100px">
+                    </td>
+                    <td class="py-5">{{ $item->no_telp }}</td>
+                    <td class="py-5">{{ $item->created_at->diffForHumans() }}</td>
+                    <td class="py-5">
+                        <a href="{{ route('edit.pegawai', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                        <a href="{{ route('delete.pegawai', $item->id) }}" class="btn btn-danger btn-sm delete-btn"
+                            data-id="{{ $item->id }}">Delete</a>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <div class="d-flex justify-content-center">
+            {{ $data->links() }}
+        </div>
     </div>
 </div>
 </div>
